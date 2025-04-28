@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+  }
+  
+  header {
+    background-color: #0c1026;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  header h1 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  
+  .login-btn {
+    background-color: #163a62;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: white;
+  }
+  
+  main {
+    display: flex;
+  }
+  
+  .filtro {
+    background-color: #163a62;
+    color: black;
+    padding: 2rem;
+    width: 280px;
+    height: auto;
+    color: white;
+  }
+  
+  .filtro h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .filtro ul {
+    list-style: none;
+  }
+  
+  .filtro li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .conteudo {
+    max-width: 800px;
+    width: 100%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    width: 100%;
+  }
+  
+  .topo h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .add-btn {
+    background-color: #163a62;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .duvidas {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .box {
+    background-color: #dcdcdc;
+    height: 200px;
+    border-radius: 5px;
+    width: 500px;
+  }
+  
+  a {
+    text-decoration: none;  /* remove o sublinhado */
+    color: inherit;         /* herda a cor do elemento pai */
+  }
+  
+  a:visited {
+    color: inherit;         /* remove a cor roxa de links visitados */
+  }
+  
+  a:focus,
+  a:hover,
+  a:active {
+    outline: none;          /* remove a borda azul/roxa ao clicar ou focar */
+    color: inherit;         /* mantém a cor herdada ao passar o mouse */
+  }
+
+
+  .card-postagem {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    width: 90%; /* deixa mais largo */
+    max-width: 800px; /* limita para não ficar enorme */
+    margin-left: auto;
+    margin-right: auto; /* centraliza */
+}
+
+.card-postagem h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.card-postagem p {
+    color: #555;
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.card-postagem .filtro {
+
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 20px;
+}
+
+.card-postagem .botoes {
+    margin-top: 20px;
+}
+
+.card-postagem .botoes button {
+    margin-right: 10px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.card-postagem .botoes button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.card-postagem .botoes button:nth-child(2) {
+    background-color: #dc3545;
+}
+
+.card-postagem .botoes button:nth-child(2):hover {
+    background-color: #c82333;
+}
+
+.tituloH{
+  font-size: larger;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.comentario-area {
+  margin-top: 15px;
+}
+
+.comentario-area textarea {
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.btn-comentar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-comentar:hover {
+  background-color: #45a049;
+}

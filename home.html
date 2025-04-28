@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelpHub</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <header>
+    <a href="home.html" class="tituloH">HelpHub</a>
+    <a href="listaUsuarios.html">Usuários Cadastrados</a>
+    <button class="login-btn" onclick="window.location.href = 'http://127.0.0.1:5500/Front/cadastro.html';">Login/Sign Up</button>
+  </header>
+
+  <main>
+    <aside class="filtro">
+      <h2>Filtro:</h2>
+      <ul>
+        <li><a href="">- Design <i class="fas fa-code"></i></a></li>
+        <li><a href="">- Programação <i class="fab fa-apple"></i></a></li>
+        <li><a href="">- Materiais de estudo <i class="far fa-file-alt"></i></a></li>
+        <li><a href="">- Projetos <i class="fas fa-folder"></i></a></li>
+      </ul>
+    </aside>
+
+    <section class="conteudo">
+      <div class="topo">
+        <h2>Dúvidas:</h2>
+        <button class="add-btn" onclick="window.location.href = 'http://127.0.0.1:5500/Front/cadastroPostagem.html';">Adicionar material de estudo</button>
+      </div>
+      <div class="duvidas" id="duvidas">
+
+      </div>
+    </section>
+  </main>
+</body>
+<script src="home.js"></script>
+</html>

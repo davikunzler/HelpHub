@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left-side {
+    width: 50%;
+    background-color: #0c1026;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  
+  .left-side h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .left-side .dot {
+    color: #1e6eff;
+  }
+  
+  .right-side {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-box {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .form-box h2 {
+    margin-bottom: 24px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  form input, form textarea, form select {
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  form button {
+    background-color: #1e6eff;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #155fd3;
+  }
+  

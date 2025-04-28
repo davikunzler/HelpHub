@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 100%;
+    min-height: 720px;
+  }
+  
+  /* Lado esquerdo */
+  .left-side {
+    width: 50%;
+    background-color: #0c1026;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 32px;
+  }
+  
+  .left-side h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  
+  .left-side .dot {
+    color: #1e6eff;
+  }
+  
+  /* Lado direito */
+  .right-side {
+    width: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-box {
+    width: 100%;
+    max-width: 360px;
+  }
+  
+  .form-box h2 {
+    margin-bottom: 24px;
+    font-weight: 600;
+    color: #111111;
+    font-size: 22px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #444444;
+  }
+  
+  form input {
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  form input:focus {
+    outline: none;
+    border-color: #1e6eff;
+    box-shadow: 0 0 0 1px #1e6eff33;
+  }
+  
+  form button {
+    background-color: #1e6eff;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+
+  }
+  
+  form button:hover {
+    background-color: #155fd3;
+  }
+  
+  .login-text {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #777777;
+    text-align: center;
+  }
+  
+  .login-text a {
+    color: #1e6eff;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  .voltarHome {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif; /* Igual ao resto */
+    color: white; /* Ou ajuste se precisar */
+    text-decoration: none; /* Se for um link */
+  }
+  
