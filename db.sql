@@ -21,9 +21,13 @@ CREATE TABLE Postagens (
 CREATE TABLE Comentarios(
     id_comentario INT AUTO_INCREMENT PRIMARY KEY,
     conteudo VARCHAR(255) NOT NULL,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id_postagem INT,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_postagem) REFERENCES Postagens(id_postagem)
 );
 
 select * from Usuarios;
 select * from Comentarios;
+select * from Postagens;
 drop table Postagens;
+drop table Comentarios;
