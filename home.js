@@ -23,6 +23,8 @@ function carregarPostagens() {
                         <textarea id="comentario-${postagem.id_postagem}" placeholder="Escreva seu comentário..."></textarea>
                         <button onclick="comentar(${postagem.id_postagem})" class="btn-comentar">Publicar Comentário</button>
 
+
+                        <h4 class= 'txtComment'>Comentários</h4>
                         <div id="comentarios-${postagem.id_postagem}" class="comentarios-lista"></div>
                     </div>
                 `;
@@ -137,8 +139,8 @@ function carregarComentarios(idPostagem) {
 
                 comentarioItem.innerHTML = `
                     <p>${comentario.conteudo}</p>
-                    <button onclick="editarComentario(${comentario.id_comentario}, '${comentario.conteudo}', ${idPostagem})">Editar</button>
-                    <button onclick="deletarComentario(${comentario.id_comentario}, ${idPostagem})">Excluir</button>
+
+                    <button  class= 'btnexcluircomment'    onclick="deletarComentario(${comentario.id_comentario}, ${idPostagem})">Excluir</button>
                 `;
 
                 comentariosDiv.appendChild(comentarioItem);
@@ -152,4 +154,36 @@ function carregarComentarios(idPostagem) {
 
 
 
+
+function deletarComentario(id_comentario, idPostagem) {
+    if (!confirm('Tem certeza que deseja excluir este comentário?')) {
+        return; // Se o usuário não confirmar, não faz nada
+    }
+
+    // Requisição DELETE para o back-end
+    fetch(`http://localhost:3000/delete_comentario/${id_comentario}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Comentário excluído com sucesso!');
+            carregarComentarios(idPostagem); // Recarregar os comentários após exclusão
+        } else {
+            alert('Erro ao excluir comentário.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao excluir comentário:', error);
+        alert('Erro ao excluir comentário.');
+    });
+}
+
+
+
+
 window.onload = carregarPostagens;
+
+
+
+

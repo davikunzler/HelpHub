@@ -193,12 +193,25 @@
 }
 
 
+.btnexcluircomment{
+  margin-right: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #c82333;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
 
 
 
-
-
+.txtComment{
+  margin-top: 5px;
+  display: flex;
+}
 
 
 
