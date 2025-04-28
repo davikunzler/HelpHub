@@ -215,27 +215,20 @@ app.get('/listar_comentarios/:id', (req, res) => {
 });
 
 
-// app.put('/editar_comentario/:id', (req, res) => {
-//     const query = 'UPDATE comentarios SET conteudo = ? WHERE id_comentario = ?';
-//     const {id} = req.params
-//     const {conteudo} = req.body;
-//     connection.query(query, [conteudo, id], (err) => {
-//         if(err){
-//             return res.status(500).json({success: false, message: 'Erro ao editar comentário.'})
-//         }
-//        res.json({success: true, message: 'Comentário editado com sucesso!'})
-//     })
-// })
 
-// app.delete('/delete_comentario/:id', (req, res) => {
-//     const {id} = req.params
-//     const query = 'DELETE FROM comentarios WHERE id_comentario = ?'
-//     connection.query(query, [id], (err) => {
-//         if(err){
-//             return res.status(500).json({success: false, message: 'Erro ao deletar comentario.'})
-//         }
-//         res.json({success: true, message: 'Comentário deletado com sucesso!'})
-//     })
-// })
+// Deletar uma postagem
+app.delete('/delete_comentario/:id', (req, res) => {
+    const { id } = req.params; // corrigido
+    const query = 'DELETE FROM Comentarios WHERE id_comentario = ?';
+    connection.query(query, [id], (err) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: 'Erro ao deletar postagem.' });
+        }
+        res.json({ success: true, message: 'Postagem deletada com sucesso!' });
+    });
+});
+
+
+
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
