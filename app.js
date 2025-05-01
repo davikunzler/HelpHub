@@ -229,6 +229,48 @@ app.delete('/delete_comentario/:id', (req, res) => {
 });
 
 
+app.post('/avaliar_usuario', (req, res) => {
+    const { id_usuario, nota, comentario } = req.body;
+
+    if (!id_usuario || !nota || nota < 1 || nota > 5) {
+        return res.status(400).json({ success: false, message: 'Dados inválidos para avaliação.' });
+    }
+
+    const query = 'INSERT INTO Avaliacoes (id_usuario, nota, comentario) VALUES (?, ?, ?)';
+    connection.query(query, [id_usuario, nota, comentario], (err) => {
+        if (err) {
+            console.error('Erro ao salvar avaliação:', err);
+            return res.status(500).json({ success: false, message: 'Erro ao cadastrar avaliação.' });
+        }
+        res.json({ success: true, message: 'Avaliação cadastrada com sucesso!' });
+    });
+});
+
+
+
+
+
+
+
+app.get('/usuarios_com_media', (req, res) => {
+    const query = `
+        SELECT u.id_usuario, u.nome, u.email, 
+               ROUND(AVG(a.nota), 1) AS media_avaliacao
+        FROM Usuarios u
+        LEFT JOIN Avaliacoes a ON u.id_usuario = a.id_usuario
+        GROUP BY u.id_usuario
+    `;
+
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar usuários com média:', err);
+            return res.status(500).json({ success: false, message: 'Erro ao buscar dados.' });
+        }
+        res.json({ success: true, data: results });
+    });
+});
+
+
 
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));

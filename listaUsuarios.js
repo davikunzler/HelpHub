@@ -6,10 +6,10 @@ function abrirCadastro() {
     window.location.href = 'cadastro.html';
 }
 
-// Carregar a lista de usuários
+// Carregar a lista de usuários com média de avaliação
 async function carregarUsuarios() {
     try {
-        const response = await fetch('http://localhost:3000/listar_usuario');
+        const response = await fetch('http://localhost:3000/usuarios_com_media');
         if (!response.ok) {
             throw new Error('Erro ao buscar usuários: ' + response.statusText);
         }
@@ -25,7 +25,7 @@ async function carregarUsuarios() {
     }
 }
 
-// Renderizar a tabela de usuários
+// Renderizar a tabela de usuários com média
 function renderizarTabela(usuarios) {
     const tbody = document.getElementById('usuariosTableBody');
     tbody.innerHTML = '';
@@ -37,6 +37,7 @@ function renderizarTabela(usuarios) {
             <td>${user.id_usuario || user.id}</td>
             <td>${user.nome}</td>
             <td>${user.email}</td>
+            <td>${user.media_avaliacao !== null ? user.media_avaliacao : 'Sem avaliações'}</td>
             <td>
                 <button class="btn-edit" onclick="editar(${user.id_usuario || user.id}, '${user.nome}', '${user.email}')">Editar</button>
                 <button class="btn-delete" onclick="deletar(${user.id_usuario || user.id})">Deletar</button>
@@ -52,7 +53,7 @@ function editar(id, nome, email) {
     document.getElementById('usuario-id').value = id;
     document.getElementById('nome').value = nome;
     document.getElementById('email').value = email;
-    document.getElementById('senha').value = ''; // deixa o campo senha vazio
+    document.getElementById('senha').value = '';
 }
 
 // Fechar o modal

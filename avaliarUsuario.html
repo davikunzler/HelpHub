@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliar Usuário</title>
+  <link rel="stylesheet" href="avaliarUsuario.css">
+</head>
+<body>
+<a href="home.html" class="voltarHome">Retornar à pagina inicial</a>
+  <h2>Avaliar Usuário</h2>
+
+  <form id="avaliacaoForm">
+    <label for="id_usuario">ID do Usuário</label>
+    <input type="number" id="id_usuario" placeholder="Digite o ID do usuário" required />
+
+    <label for="nota">Nota (1 a 5)</label>
+    <input type="number" id="nota" min="1" max="5" required />
+
+    <label for="comentario">Comentário</label>
+    <textarea id="comentario" rows="4" placeholder="Escreva um comentário (opcional)"></textarea>
+
+    <button type="submit">Enviar Avaliação</button>
+  </form>
+
+  <script>
+    document.getElementById('avaliacaoForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const id_usuario = document.getElementById('id_usuario').value;
+      const nota = parseInt(document.getElementById('nota').value);
+      const comentario = document.getElementById('comentario').value;
+
+      fetch('http://localhost:3000/avaliar_usuario', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_usuario, nota, comentario })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message);
+        document.getElementById('avaliacaoForm').reset();
+      })
+      .catch(err => {
+        console.error('Erro ao enviar avaliação', err);
+        alert('Erro ao enviar avaliação');
+      });
+    });
+  </script>
+
+</body>
+</html>

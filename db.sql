@@ -16,18 +16,27 @@ CREATE TABLE Postagens (
     filtro ENUM ('design','programacao','materialEstudo','projetos'),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
+DROP TABLE Comentarios;DROP TABLE Comentarios;
 
 CREATE TABLE Comentarios(
+
     id_comentario INT AUTO_INCREMENT PRIMARY KEY,
     conteudo VARCHAR(255) NOT NULL,
-    id_postagem INT,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_postagem) REFERENCES Postagens(id_postagem)
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE Avaliacoes (
+    id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    nota INT NOT NULL CHECK (nota BETWEEN 1 AND 5),
+    comentario TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
 
+INSERT INTO Usuarios (id_usuario, nome, senha, email)
+VALUES ('1', 'ass Teste', 'ssdda1234', 'lol@example.com');
+
+ALTER TABLE Comentarios ADD COLUMN id_postagem INT;
+
 select * from Usuarios;
-select * from Comentarios;
-select * from Postagens;
-drop table Postagens;
-drop table Comentarios;
+select * from Avaliacoes;
+drop table Usuarios;

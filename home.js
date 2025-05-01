@@ -138,6 +138,7 @@ function carregarComentarios(idPostagem) {
                 comentarioItem.className = 'comentario-item';
 
                 comentarioItem.innerHTML = `
+                    
                     <p>${comentario.conteudo}</p>
 
                     <button  class= 'btnexcluircomment'    onclick="deletarComentario(${comentario.id_comentario}, ${idPostagem})">Excluir</button>
