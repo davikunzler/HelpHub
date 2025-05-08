@@ -1,4 +1,6 @@
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 const cors = require('cors');
 const connection = require('./db_config');
 const app = express();
@@ -7,6 +9,11 @@ app.use(cors());
 app.use(express.json());
  
 const port = 3000;
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 app.get('/listar_usuario', (req, res) => {
     connection.query('SELECT * FROM Usuarios', (err, rows) => {
         if (err) {
@@ -273,4 +280,7 @@ app.get('/usuarios_com_media', (req, res) => {
 
 
 
-app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+    console.log(`Documentação disponível em http://localhost:${port}/api-docs`);
+})

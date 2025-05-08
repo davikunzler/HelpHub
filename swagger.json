@@ -1,0 +1,381 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Feira de Trocas Digitais",
+    "version": "1.0.0",
+    "description": "Rede social com o objetivo de resolver dúvidas dos usuários sobre tecnologia."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor local"
+    }
+  ],
+  "paths": {
+      "/api/hello": {
+          "get": {
+            "summary": "Rota de teste Hello World",
+            "responses": {
+              "200": {
+                "description": "Mensagem de Olá mundo"
+              }
+            }
+          }
+        },
+
+      "/listar_usuarios": {
+          "get": {
+            "summary": "Lista todos os usuários",
+            "responses": {
+              "200": {
+                "description": "Usuário listados com sucesso!"
+              },
+              "500": {
+                "description": "Erro ao buscar usuarios."
+              }
+            }
+          }
+        },
+
+    "/cadastrar": {
+      "post": {
+        "summary": "Cadastro de usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "type": "string" },
+                  "senha": { "type": "string" },
+                  "email": { "type": "string" }
+                },
+                "required": ["nome", "senha", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário cadastrado com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao cadastrar usuário."
+          }
+        }
+      }
+    },
+
+    "/editar_usuario/:id": {
+      "put": {
+        "summary": "Editar o usuário",
+        "parameters": [
+          {
+            "name": "usuario_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do usuário"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "type": "string" },
+                  "senha": { "type": "string" },
+                  "email": { "type": "string" }
+                },
+                "required": ["nome, senha, email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário editado com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao editar usuário."
+          }
+        }
+      }
+    },
+
+    "/delete_usuario/:id": {
+      "delete": {
+        "summary": "Deletar o usuário",
+        "parameters": [
+          {
+            "name": "usuario_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do usuário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário deletado com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao deletar usuário."
+          }
+        }
+      }
+    },
+
+    "/login": {
+      "post": {
+        "summary": "Login de usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "senha": { "type": "string" }
+                },
+                "required": ["email", "senha"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login bem-sucedido!"
+          },
+          "500": {
+            "description": "Email ou senha incorretos."
+          }
+        }
+      }
+    },
+
+    "/listar_postagens": {
+      "get": {
+        "summary": "Lista todas as postagens dos usuários",
+        "responses": {
+          "200": {
+            "description": "Postagens buscadas com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao buscar postagens."
+          }
+        }
+      }
+    },
+
+    "/listar_comentarios": {
+      "get": {
+        "summary": "Lista todas os comentários feitos em uma postagem",
+        "responses": {
+          "200": {
+            "description": "Comentários buscados com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao buscar comentários."
+          }
+        }
+      }
+    },
+
+    "/postar": {
+      "post": {
+        "summary": "Publicar uma postagem",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": { "type": "string" },
+                  "descricao": { "type": "string" },
+                  "filtro": { "type": "string" }
+                },
+                "required": ["titulo", "descricao", "filtro"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Postagem publicada com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao publicar postagem."
+          }
+        }
+      }
+    },
+
+    "/editar_postagem/:id": {
+      "put": {
+        "summary": "Editar uma postagem",
+        "parameters": [
+          {
+            "name": "postagem_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID da postagem"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": { "type": "string" },
+                  "descricao": { "type": "string" },
+                  "filtro": { "type": "string" }
+                },
+                "required": ["titulo, descricao, filtro"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Postagem editada com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao editar postagem."
+          }
+        }
+      }
+    },
+
+    "/delete_postagem/:id": {
+      "delete": {
+        "summary": "Deletar uma postagem",
+        "parameters": [
+          {
+            "name": "postagem_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID da postagem"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Postagem deletada com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao deletar Postagem."
+          }
+        }
+      }
+    },
+
+    "/comentar": {
+      "post": {
+        "summary": "Publicar um comentário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conteudo": { "type": "string" }
+                },
+                "required": ["conteudo"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Comentário publicado com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao publicar comentário."
+          }
+        }
+      }
+    },
+
+    "/editar_comentario/:id": {
+      "put": {
+        "summary": "Editar um comentário",
+        "parameters": [
+          {
+            "name": "comentario_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do comentário"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conteudo": { "type": "string" }
+                },
+                "required": ["conteudo"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Comentário editado com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao editar comentário."
+          }
+        }
+      }
+    },
+
+    "/delete_comentario/:id": {
+      "delete": {
+        "summary": "Deletar um comentário",
+        "parameters": [
+          {
+            "name": "comentario_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do comentário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comentário deletado com sucesso!"
+          },
+          "500": {
+            "description": "Erro ao deletar comentário."
+          }
+        }
+      }
+    }
+  }
+}
